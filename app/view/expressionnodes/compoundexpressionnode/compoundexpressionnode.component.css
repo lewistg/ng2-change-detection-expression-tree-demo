@@ -1,0 +1,16 @@
+.node-wrapper {
+    position: relative;
+}
+select {
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 20px;
+    border: none;
+}
+.expression-value {
+    font-size: 10px;
+    position: relative;
+    top: 8px;
+    left: 100%;
+    font-family: Arial, sans-serif;
+    color: gray;
+}

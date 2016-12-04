@@ -1,0 +1,6 @@
+input {
+    width: 220px;
+}
+input:disabled {
+    opacity: 0.25;
+}

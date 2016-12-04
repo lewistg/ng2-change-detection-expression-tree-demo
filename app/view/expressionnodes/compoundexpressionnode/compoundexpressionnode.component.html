@@ -1,0 +1,20 @@
+<template #nodeDivTemplate>
+    <div class="node-wrapper">
+        <div class="expression-value">{{expression.value}}</div>
+        <ng-lifecylce-hook-flasher #nodeElementRef>
+            <select [(ngModel)]="operator">
+               <option value="{{operators.ADD}}">+</option>
+               <option value="{{operators.SUBTRACT}}">-</option>
+               <option value="{{operators.MULTIPLY}}">*</option>
+            </select> 
+        </ng-lifecylce-hook-flasher>
+    </div>
+</template>
+<expression-node
+    #leftExpressionNode
+    [(expression)]="leftExpression"
+></expression-node>
+<expression-node
+    #rightExpressionNode
+    [(expression)]="rightExpression"
+></expression-node>

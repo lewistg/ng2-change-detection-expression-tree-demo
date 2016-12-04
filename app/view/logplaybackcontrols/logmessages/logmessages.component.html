@@ -1,0 +1,20 @@
+<div 
+    #linesContainer
+    class="lines-container"
+>
+    <div 
+        *ngFor="let entry of log.entries; let i = index;"
+        class="line"
+    >
+        <div class="current-step-marker">
+            <span 
+                #currentStepMarker
+                *ngIf="flashLogPlayback.currEntryIndex == i && flashLogPlayback.isPlayingBack"
+            >-></span>
+        </div>
+        <input 
+            [value]="entry.message"
+            [style.color]="lineColor(entry)"
+        />
+    </div>
+</div>

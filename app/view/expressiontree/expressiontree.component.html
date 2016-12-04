@@ -1,0 +1,21 @@
+<div 
+    #wrapper
+    class="wrapper"
+>
+    <div class="levels">
+        <div class="level" *ngFor="let level of levels; let i = index">
+            <div #levelAnchor></div>
+            <template #nodeSpacer>
+                <div class="node-spacer"></div>
+            </template>
+        </div>
+    </div>
+    <expression-node
+        #rootExpression
+        [expression]="expression"
+    ></expression-node>
+    <connector
+        *ngFor="let connector of connections"
+        [domLineSegment]="connector"
+    ></connector>
+</div>

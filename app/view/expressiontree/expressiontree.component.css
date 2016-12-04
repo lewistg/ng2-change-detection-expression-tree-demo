@@ -1,0 +1,22 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+.wrapper {
+    position: relative;
+    flex-grow: 0;
+}
+.level {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.level:nth-child(2) .node-spacer {
+    width: 128px;
+}
+.level:nth-child(3) .node-spacer {
+    width: 64px;
+}
+.level:nth-child(n + 4) .node-spacer {
+    width: 32px;
+}

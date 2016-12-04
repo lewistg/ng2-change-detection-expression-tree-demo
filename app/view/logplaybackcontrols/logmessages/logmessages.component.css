@@ -1,0 +1,21 @@
+.lines-container {
+    border: 1px solid black;
+    height: 75px;
+    width: 400px;
+    overflow-y: scroll;
+    position: relative;
+}
+.line {
+    display: flex;
+}
+.line input {
+    font-family: monospace;
+    border: none;
+    flex-grow: 1;
+}
+.current-step-marker {
+    color: #2546ff;
+    font-weight: bold;
+    font-family: monospace;
+    width: 22px;
+}

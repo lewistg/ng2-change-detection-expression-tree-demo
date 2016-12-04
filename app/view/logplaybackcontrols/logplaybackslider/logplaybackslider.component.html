@@ -1,0 +1,8 @@
+<input 
+    type="range" 
+    min="0" 
+    [max]="log.length - 1"
+    [disabled]="!flashLogPlayback.isPlayingBack"
+    [ngModel]="flashLogPlayback.currEntryIndex"
+    (ngModelChange)="onValueChange($event)"
+>

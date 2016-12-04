@@ -1,0 +1,40 @@
+<div class="controls">
+    <div
+        class="button record" tabindex="-1"
+        [class.recording]="flashLogPlayback.isRecording"
+        (mousedown)="flashLogPlayback.toggleRecording()"
+    >
+        <div class="icon"></div>
+    </div>
+    <div
+        class="button backwards" tabindex="-1"
+        [class.disabled]="!flashLogPlayback.canStepBackwards"
+        (mousedown)="flashLogPlayback.stepBackwards()"
+    >
+        <div class="icon"></div>
+        <div class="icon"></div>
+    </div>
+    <div
+        *ngIf="!flashLogPlayback.isPlayingBack"
+        class="button play" tabindex="-1"
+        [class.disabled]="!flashLogPlayback.canPlayback"
+        (mousedown)="flashLogPlayback.startPlayback()"
+    >
+        <div class="icon"></div>
+    </div>
+    <div
+        *ngIf="flashLogPlayback.isPlayingBack"
+        class="button stop" tabindex="-1"
+        (mousedown)="flashLogPlayback.endPlayback()"
+    >
+        <div class="icon"></div>
+    </div>
+    <div
+        class="button forwards" tabindex="-1"
+        [class.disabled]="!flashLogPlayback.canStepForwards"
+        (mousedown)="flashLogPlayback.stepForwards()"
+    >
+        <div class="icon"></div>
+        <div class="icon"></div>
+    </div>
+</div>

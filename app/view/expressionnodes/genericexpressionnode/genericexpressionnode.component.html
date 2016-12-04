@@ -1,0 +1,12 @@
+<template [ngIf]="isCompoundExpression">
+    <compound-expression-node
+        #node
+        [(expression)]="expression"
+    ></compound-expression-node>
+</template>
+<template [ngIf]="isNumberExpression">
+    <number-expression-node
+        #node
+        [(expression)]="expression"
+    ></number-expression-node>
+</template>
