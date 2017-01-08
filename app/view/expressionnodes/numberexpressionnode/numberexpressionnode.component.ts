@@ -1,4 +1,4 @@
-import { 
+import {
     AfterViewChecked,
     Component,
     ElementRef,
@@ -6,6 +6,7 @@ import {
     Input,
     OnChanges,
     Output,
+    SimpleChanges,
     TemplateRef,
     ViewChild,
 } from '@angular/core';
@@ -58,7 +59,7 @@ export class NumberExpressionNodeComponent implements AfterViewChecked, Expressi
         }
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes: SimpleChanges) {
         if (!!this.flasher) {
             this._log.log(new NgOnChangesCalled(this.flasher), !this._logPlayback.isPlayingBack);
         }

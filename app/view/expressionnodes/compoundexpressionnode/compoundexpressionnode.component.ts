@@ -7,6 +7,7 @@ import {
     Input,
     Output,
     QueryList,
+    SimpleChanges,
     TemplateRef,
     ViewChild,
     ViewChildren 
@@ -90,7 +91,7 @@ export class CompoundExpressionComponent implements AfterViewChecked, Expression
         }
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes: SimpleChanges) {
         if (!!this.flasher) {
             this._log.log(new NgOnChangesCalled(this.flasher), !this._logPlayback.isPlayingBack);
         }
