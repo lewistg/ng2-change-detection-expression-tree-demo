@@ -12,9 +12,11 @@
                 *ngIf="flashLogPlayback.currEntryIndex == i && flashLogPlayback.isPlayingBack"
             >-></span>
         </div>
-        <input 
-            [value]="entry.message"
+        <div 
+            class="message"
+            [class.no-click]="!flashLogPlayback.isPlayingBack"
             [style.color]="lineColor(entry)"
-        />
+            (click)="flashLogPlayback.jumpToEntry(i)"
+        >{{entry.message}}</div>
     </div>
 </div>

@@ -8,11 +8,20 @@
 .line {
     display: flex;
 }
-.line input {
+
+.line .message {
     font-family: monospace;
     border: none;
     flex-grow: 1;
 }
+.line .message.no-click {
+    pointer-events: none;
+}
+.line .message:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .current-step-marker {
     color: #2546ff;
     font-weight: bold;
