@@ -23,10 +23,17 @@ export class LogMessagesPlaybackComponent implements AfterViewChecked {
         if (!this.linesContainer || !this.currentStepMarker) {
             return;
         }
-        
-        if (this.currentStepMarker.nativeElement.parentElement.offsetTop < this.linesContainer.nativeElement.scrollTop 
-            || this.currentStepMarker.nativeElement.parentElement.offsetTop > this.linesContainer.nativeElement.scrollTop + this.linesContainer.nativeElement.offsetHeight) {
-                this.linesContainer.nativeElement.scrollTop = this.currentStepMarker.nativeElement.parentElement.offsetTop;
+
+        let containerElt = this.linesContainer.nativeElement;
+        let markerElt = this.currentStepMarker.nativeElement;
+
+        if (markerElt.offsetTop < containerElt.scrollTop) {
+            containerElt.scrollTop = markerElt.offsetTop
+        }
+
+        let markerEltOffsetBottom = markerElt.offsetTop + markerElt.offsetHeight;
+        if (markerEltOffsetBottom > containerElt.scrollTop + containerElt.offsetHeight) {
+            containerElt.scrollTop = markerEltOffsetBottom - containerElt.offsetHeight;
         }
     }
 }
