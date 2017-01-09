@@ -16,7 +16,7 @@ import { ExpressionNodeComponent, EXPRESSION_NODE_COMPONENT } from '../expressio
 import { FlashLog } from '../../../model/flashlog';
 import { FlashLogPlayback } from '../../../model/flashlogplayback';
 import { FlasherComponent } from '../../flasher/flasher.component';
-import { NgOnChangesCalled, NgDoCheckCalled, NgAfterViewChecked } from '../../flashlogentries';
+import { ExpressionChanged, NgOnChangesCalled, NgDoCheckCalled, NgAfterViewChecked } from '../../flashlogentries';
 
 @Component({
     moduleId: module.id,
@@ -42,7 +42,12 @@ export class NumberExpressionNodeComponent implements AfterViewChecked, Expressi
         if (this.value.toString() === value) {
             return;
         }
+
+        let prevExpression = this.expression;
         this.expression = this.expression.setValue(parseInt(value, 10));
+        if (!!this.flasher) {
+            this._log.log(new ExpressionChanged(this.flasher, prevExpression, this.expression), !this._logPlayback.isPlayingBack);
+        }
         this.expressionChange.emit(this.expression);
     }
 

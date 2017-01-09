@@ -1,4 +1,4 @@
-import { 
+import {
     AfterViewChecked,
     Component,
     DoCheck,
@@ -38,7 +38,7 @@ export class CompoundExpressionComponent implements AfterViewChecked, DoCheck, E
         if (this._expression === value) {
             return;
         }
-        
+
         if (!!this.flasher) {
             this._log.log(new ExpressionChanged(this.flasher, this._expression, value), !this._logPlayback.isPlayingBack);
         }
