@@ -16,7 +16,7 @@ import { ExpressionNodeComponent, EXPRESSION_NODE_COMPONENT } from '../expressio
 import { FlashLog } from '../../../model/flashlog';
 import { FlashLogPlayback } from '../../../model/flashlogplayback';
 import { FlasherComponent } from '../../flasher/flasher.component';
-import { NgOnChangesCalled, NgAfterViewChecked } from '../../flashlogentries';
+import { NgOnChangesCalled, NgDoCheckCalled, NgAfterViewChecked } from '../../flashlogentries';
 
 @Component({
     moduleId: module.id,
@@ -53,15 +53,21 @@ export class NumberExpressionNodeComponent implements AfterViewChecked, Expressi
 
     constructor(private _log: FlashLog, private _logPlayback: FlashLogPlayback) { }
 
-    ngAfterViewChecked() {
-        if (!!this.flasher) {
-            this._log.log(new NgAfterViewChecked(this.flasher), !this._logPlayback.isPlayingBack);
-        }
-    }
-
     ngOnChanges(changes: SimpleChanges) {
         if (!!this.flasher) {
             this._log.log(new NgOnChangesCalled(this.flasher), !this._logPlayback.isPlayingBack);
+        }
+    }
+
+    ngDoCheck() {
+        if (!!this.flasher) {
+            this._log.log(new NgDoCheckCalled(this.flasher), !this._logPlayback.isPlayingBack);
+        }
+    }
+
+    ngAfterViewChecked() {
+        if (!!this.flasher) {
+            this._log.log(new NgAfterViewChecked(this.flasher), !this._logPlayback.isPlayingBack);
         }
     }
 }

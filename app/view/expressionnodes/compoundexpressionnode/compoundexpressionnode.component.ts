@@ -1,16 +1,17 @@
 import { 
     AfterViewChecked,
-    OnChanges,
     Component,
+    DoCheck,
     ElementRef,
     EventEmitter,
     Input,
+    OnChanges,
     Output,
     QueryList,
     SimpleChanges,
     TemplateRef,
     ViewChild,
-    ViewChildren 
+    ViewChildren,
 } from '@angular/core';
 
 import { ExpressionNodeComponent, EXPRESSION_NODE_COMPONENT } from '../expressionnode.component';
@@ -18,7 +19,7 @@ import { FlashLog } from '../../../model/flashlog';
 import { FlashLogPlayback } from '../../../model/flashlogplayback';
 import { CompoundExpression, Expression, NumberExpression, Operator } from '../../../model/expression';
 import { FlasherComponent } from '../../flasher/flasher.component';
-import { ExpressionChanged, NgOnChangesCalled, NgAfterViewChecked } from '../../flashlogentries';
+import { ExpressionChanged, NgOnChangesCalled, NgDoCheckCalled, NgAfterViewChecked } from '../../flashlogentries';
 
 @Component({
     moduleId: module.id,
@@ -27,7 +28,7 @@ import { ExpressionChanged, NgOnChangesCalled, NgAfterViewChecked } from '../../
     styleUrls: ['compoundexpressionnode.component.css'],
     providers: [{provide: EXPRESSION_NODE_COMPONENT, useExisting: CompoundExpressionComponent}]
 })
-export class CompoundExpressionComponent implements AfterViewChecked, ExpressionNodeComponent, OnChanges {
+export class CompoundExpressionComponent implements AfterViewChecked, DoCheck, ExpressionNodeComponent, OnChanges {
     operators = Operator;
 
     @Output() expressionChange: EventEmitter<Expression> = new EventEmitter<Expression>(false);
@@ -85,15 +86,22 @@ export class CompoundExpressionComponent implements AfterViewChecked, Expression
 
     constructor(private _log: FlashLog, private _logPlayback: FlashLogPlayback) { }
 
+    ngOnChanges(changes: SimpleChanges) {
+        if (!!this.flasher) {
+            this._log.log(new NgOnChangesCalled(this.flasher), !this._logPlayback.isPlayingBack);
+        }
+    }
+
+    ngDoCheck() {
+        if (!!this.flasher) {
+            this._log.log(new NgDoCheckCalled(this.flasher), !this._logPlayback.isPlayingBack);
+        }
+    }
+
     ngAfterViewChecked() {
         if (!!this.flasher) {
             this._log.log(new NgAfterViewChecked(this.flasher), !this._logPlayback.isPlayingBack);
         }
     }
 
-    ngOnChanges(changes: SimpleChanges) {
-        if (!!this.flasher) {
-            this._log.log(new NgOnChangesCalled(this.flasher), !this._logPlayback.isPlayingBack);
-        }
-    }
 }
