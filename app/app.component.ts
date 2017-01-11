@@ -4,7 +4,7 @@ import { FlashLog } from './model/flashlog';
 import { FlashLogPlayback } from './model/flashlogplayback';
 
 @Component({
-  selector: 'my-app',
+  selector: 'expression-tree-app',
   template: `
     <expression-tree></expression-tree>
     <div class="controls">
@@ -25,7 +25,7 @@ import { FlashLogPlayback } from './model/flashlogplayback';
       }
   `]
 })
-export class AppComponent  { 
+export class AppComponent  {
     constructor(private _log: FlashLog) {
         this._log.record = false;
     }
