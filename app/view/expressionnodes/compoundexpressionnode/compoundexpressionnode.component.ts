@@ -19,7 +19,7 @@ import { FlashLog } from '../../../model/flashlog';
 import { FlashLogPlayback } from '../../../model/flashlogplayback';
 import { CompoundExpression, Expression, NumberExpression, Operator } from '../../../model/expression';
 import { FlasherComponent } from '../../flasher/flasher.component';
-import { ExpressionChanged, NgOnChangesCalled, NgDoCheckCalled, NgAfterViewChecked } from '../../flashlogentries';
+import { ExpressionChanged, NgOnChangesCalled, NgDoCheckCalled, NgAfterViewChecked } from '../../../model/flashlogentries';
 
 @Component({
     moduleId: module.id,
