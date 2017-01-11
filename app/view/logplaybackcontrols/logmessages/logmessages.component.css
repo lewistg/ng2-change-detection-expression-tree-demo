@@ -1,7 +1,8 @@
 .lines-container {
     border: 1px solid black;
     height: 75px;
-    width: 400px;
+    width: 550px;
+    overflow-x: hidden;
     overflow-y: scroll;
     position: relative;
 }
@@ -13,6 +14,7 @@
     font-family: monospace;
     border: none;
     flex-grow: 1;
+    white-space: nowrap;
 }
 .line .message.no-click {
     pointer-events: none;
@@ -27,4 +29,5 @@
     font-weight: bold;
     font-family: monospace;
     width: 22px;
+    flex-srink: 0;
 }

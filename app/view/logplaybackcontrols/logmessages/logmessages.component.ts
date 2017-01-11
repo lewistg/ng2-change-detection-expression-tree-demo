@@ -19,7 +19,14 @@ export class LogMessagesPlaybackComponent implements AfterViewChecked {
         return `rgb(${entry.color.r}, ${entry.color.g}, ${entry.color.b})`
     }
 
-    ngAfterViewChecked() {
+    private _setScrollDuringRecording() {
+        if (!this.linesContainer) {
+            return;
+        }
+        this.linesContainer.nativeElement.scrollTop = this.linesContainer.nativeElement.scrollHeight;
+    }
+
+    private _setScrollDuringPlayback() {
         if (!this.linesContainer || !this.currentStepMarker) {
             return;
         }
@@ -34,6 +41,14 @@ export class LogMessagesPlaybackComponent implements AfterViewChecked {
         let markerEltOffsetBottom = markerElt.offsetTop + markerElt.offsetHeight;
         if (markerEltOffsetBottom > containerElt.scrollTop + containerElt.offsetHeight) {
             containerElt.scrollTop = markerEltOffsetBottom - containerElt.offsetHeight;
+        }
+    }
+
+    ngAfterViewChecked() {
+        if (this.flashLogPlayback.isRecording) {
+            this._setScrollDuringRecording();
+        } else if (this.flashLogPlayback.isPlayingBack) {
+            this._setScrollDuringPlayback();
         }
     }
 }

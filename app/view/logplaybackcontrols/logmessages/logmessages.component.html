@@ -1,18 +1,19 @@
-<div 
+<div
     #linesContainer
     class="lines-container"
+    [attr.scrollTop]="scrollTop"
 >
-    <div 
+    <div
         *ngFor="let entry of log.entries; let i = index;"
         class="line"
     >
         <div class="current-step-marker">
-            <span 
+            <span
                 #currentStepMarker
                 *ngIf="flashLogPlayback.currEntryIndex == i && flashLogPlayback.isPlayingBack"
             >-></span>
         </div>
-        <div 
+        <div
             class="message"
             [class.no-click]="!flashLogPlayback.isPlayingBack"
             [style.color]="lineColor(entry)"
