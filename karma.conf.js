@@ -1,8 +1,8 @@
 module.exports = function(config) {
 
-  var appBase    = 'app/';      // transpiled app JS and map files
-  var appSrcBase = 'app/';      // app source TS files
-  var appAssets  = 'base/app/'; // component assets fetched by Angular's compiler
+  var appBase    = 'app/';       // transpiled app JS and map files
+  var appSrcBase = 'app/';       // app source TS files
+  var appAssets  = '/base/app/'; // component assets fetched by Angular's compiler
 
   // Testing helpers (optional) are conventionally in a folder called `testing`
   var testingBase    = 'testing/'; // transpiled test JS and map files
@@ -19,7 +19,7 @@ module.exports = function(config) {
     ],
 
     client: {
-      builtPaths: [appSrcBase, testingBase], // add more spec base paths as needed
+      builtPaths: [appBase, testingBase], // add more spec base paths as needed
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
 
@@ -38,7 +38,6 @@ module.exports = function(config) {
 
       // Polyfills
       'node_modules/core-js/client/shim.js',
-      'node_modules/reflect-metadata/Reflect.js',
 
       // zone.js
       'node_modules/zone.js/dist/zone.js',
