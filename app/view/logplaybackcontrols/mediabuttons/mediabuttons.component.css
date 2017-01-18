@@ -1,5 +1,6 @@
 .controls {
     display: flex;
+    -webkit-display: flex;
 }
 .button {
     box-sizing: border-box;
@@ -7,8 +8,11 @@
     height: 32px;
     border: solid 1px black;
     display: flex;
+    -webkit-display: flex;
     justify-content: center;
+    -webkit-justify-content: center;
     align-items: center;
+    -webkit-align-items: center;
 }
 .button.disabled {
     pointer-events: none;

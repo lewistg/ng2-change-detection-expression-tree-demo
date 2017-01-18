@@ -1,8 +1,11 @@
 .node {
     position: relative;
     display: flex;
+    -webkit-display: flex;
     justify-content: center;
+    -webkit-justify-content: center;
     align-items: center;
+    -webkit-align-items: center;
     width: 38px;
     height: 38px;
     border-radius: 19px;

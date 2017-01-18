@@ -1,14 +1,19 @@
 :host {
     display: flex;
+    -webkit-display: flex;
     justify-content: center;
+    -webkit-justify-content: center;
 }
 .wrapper {
     position: relative;
     flex-grow: 0;
+    -webkit-flex-grow: 0;
 }
 .level {
     display: flex;
+    -webkit-display: flex;
     justify-content: center;
+    -webkit-justify-content: center;
     margin-bottom: 10px;
 }
 .level:nth-child(2) .node-spacer {

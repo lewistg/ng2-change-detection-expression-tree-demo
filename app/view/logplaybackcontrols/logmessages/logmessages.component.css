@@ -8,12 +8,14 @@
 }
 .line {
     display: flex;
+    display: -webkit-flex;
 }
 
 .line .message {
     font-family: monospace;
     border: none;
     flex-grow: 1;
+    -webkit-flex-grow: 1;
     white-space: nowrap;
 }
 .line .message.no-click {
@@ -29,5 +31,6 @@
     font-weight: bold;
     font-family: monospace;
     width: 22px;
-    flex-srink: 0;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
 }
