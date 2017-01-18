@@ -41,6 +41,14 @@ export class FlashLogPlayback {
 
     constructor(private _log: FlashLog) { }
 
+    endCurrentOperation() {
+        if (this.isPlayingBack) {
+            this.endPlayback();
+        } else if (this.isRecording) {
+            this.endRecording();
+        }
+    }
+
     toggleRecording() {
         if (this.isRecording) {
             this.endRecording();
