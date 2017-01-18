@@ -1,3 +1,21 @@
+# Angular 2 Change Detection: Expression Tree Demo
+
+This is the companion repository to the post entitled [*Angular 2 Change Detection: "Seeing"
+It in
+Action*](https://www.lucidchart.com/techblog/2017/01/17/angular-2-change-detection-seeing-it-in-action)
+posted on [Lucidchart](https://www.lucidchart.com/)'s [tech
+blog](https://www.lucidchart.com/techblog/). The code contained here is for the
+expression tree demo embedded in that post. The demo is a small but nontrivial Angular 2 app
+designed to expose Angular 2's change detection system. For more details about
+its functionality, please see the blog post.
+
+The repository started as a fork of Angular's offical
+[QuickStart](https://github.com/angular/quickstart) repository and still
+contains some of the original files from that repository. (For example, the
+rest of the README shown below.)
+
+---
+
 # Angular QuickStart Source
 [![Build Status][travis-badge]][travis-badge-url]
 
