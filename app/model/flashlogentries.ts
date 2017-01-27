@@ -10,7 +10,7 @@ export class NgOnChangesCalled implements FlashLogEntry {
 
 export class NgDoCheckCalled implements FlashLogEntry {
     readonly color: Color = {r: 25, g: 118, b: 210};
-    readonly message: string = 'ngAfterViewChecked called'
+    readonly message: string = 'ngDoCheck called'
     constructor(public flasher: Flasher) {}
 }
 
